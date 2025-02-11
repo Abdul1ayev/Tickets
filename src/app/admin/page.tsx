@@ -164,7 +164,7 @@ const Admin: React.FC = () => {
   ];
 
   if (!isClient) {
-    return null; // Avoid rendering anything during SSR
+    return null;
   }
 
   return (
@@ -268,7 +268,7 @@ const Admin: React.FC = () => {
               <label className="form-label">Bus Model</label>
               <select
                 className="form-select"
-                name="busModel" // Corrected from modelBus to busModel
+                name="busModel"
                 value={ticket.busModel}
                 onChange={handleChange}
               >
@@ -284,7 +284,7 @@ const Admin: React.FC = () => {
             </div>
             <button
               type="button"
-              className={ticket.id ? "btn-warning" : "btn-primary"} // Class conditionally set based on ticket.id
+              className={ticket.id ? "btn-warning" : "btn-primary"}
               onClick={handleSaveOrUpdate}
             >
               {ticket.id ? "Update Ticket" : "Save Ticket"}
@@ -313,7 +313,7 @@ const Admin: React.FC = () => {
                 </thead>
                 <tbody>
                   {tickets
-                    .filter((t) => parseInt(t.count) > 0) // Filter out tickets with count 0
+                    .filter((t) => parseInt(t.count) > 0)
                     .map((t, index) => (
                       <tr key={t.id || index}>
                         <td>{index + 1}</td>
